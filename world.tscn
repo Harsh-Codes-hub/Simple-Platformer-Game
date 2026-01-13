@@ -14,7 +14,7 @@ size = Vector2(212.8125, 629.375)
 [node name="World" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_f3sb7")]
-position = Vector2(505, 199)
+position = Vector2(532, 511)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -31,6 +31,7 @@ position = Vector2(1260, 314)
 shape = SubResource("RectangleShape2D_aqk2v")
 
 [node name="Panel" type="Panel" parent="."]
+offset_left = 5.0
 offset_top = 516.0
-offset_right = 1154.0
+offset_right = 1159.0
 offset_bottom = 677.0
