@@ -268,8 +268,9 @@ shape = SubResource("CapsuleShape2D_fmfli")
 position = Vector2(0, -15)
 scale = Vector2(0.92329544, 0.9375)
 sprite_frames = SubResource("SpriteFrames_amv1d")
-animation = &"Run"
+animation = &"Idle"
 speed_scale = 0.3
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.6, 1.6)
