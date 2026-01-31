@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b67xy40mf3etg"]
+[gd_scene format=3 uid="uid://b67xy40mf3etg"]
 
 [ext_resource type="Script" uid="uid://dckhhehbe7d4d" path="res://Player/player.gd" id="1_rjd0h"]
 [ext_resource type="Texture2D" uid="uid://blsvx7vh2ggcv" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Characters/Players/Foxy/Sprites/idle/player-idle-1.png" id="1_srlcf"]
@@ -257,27 +257,24 @@ _data = {
 &"Run": SubResource("Animation_dkpta")
 }
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" unique_id=1325893921]
 script = ExtResource("1_rjd0h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1529202000]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_fmfli")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -15)
-scale = Vector2(0.92329544, 0.9375)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1096056120]
+position = Vector2(0, -22)
+scale = Vector2(1.2798296, 1.34375)
 sprite_frames = SubResource("SpriteFrames_amv1d")
 animation = &"Idle"
 speed_scale = 0.3
-metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2099925641]
 zoom = Vector2(1.6, 1.6)
 limit_left = 0
 limit_top = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_n471f")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1841144106]
+libraries/ = SubResource("AnimationLibrary_n471f")

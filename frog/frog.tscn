@@ -63,14 +63,11 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ia14r")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_rd326")
-}, {
 "duration": 1.0,
 "texture": ExtResource("2_rd326")
 }, {
@@ -88,6 +85,21 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_omj1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rd326")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rd326")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rd326")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rd326")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rd326")
 }],
 "loop": true,
 "name": &"Idle",
@@ -109,7 +121,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5cyyp"]
-radius = 93.0215
+radius = 127.141655
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i67qf"]
+size = Vector2(11.5, 17)
 
 [node name="Frog" type="CharacterBody2D" unique_id=590955741]
 script = ExtResource("1_rd326")
@@ -121,12 +136,21 @@ shape = SubResource("RectangleShape2D_aumaf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2140453632]
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_pnfeu")
-animation = &"Idle"
+animation = &"Death"
+metadata/_edit_lock_ = true
 
 [node name="PlayerDetection" type="Area2D" parent="." unique_id=1660218386]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection" unique_id=545410165]
 shape = SubResource("CircleShape2D_5cyyp")
 
+[node name="PlayerDeath" type="Area2D" parent="." unique_id=527473808]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeath" unique_id=502123308]
+position = Vector2(-0.75, -8.5)
+shape = SubResource("RectangleShape2D_i67qf")
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="PlayerDeath" to="." method="_on_player_death_body_entered"]
