@@ -1,10 +1,24 @@
 extends CharacterBody2D
-
+var health = 10
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 @onready var anim = $AnimationPlayer
 var current_anim := ""
+var is_dead := false
+
+func die():
+	is_dead = true
+	velocity = Vector2.ZERO
+	play_anim("Death")
+
+	await anim.animation_finished
+	await get_tree().create_timer(1.0).timeout
+
+	queue_free()
+	get_tree().change_scene_to_file("res://main.tscn")
+
+
 
 func play_anim(name: String):
 	if current_anim != name:
@@ -12,6 +26,8 @@ func play_anim(name: String):
 		anim.play(name)
 
 func _physics_process(delta):
+	if is_dead:
+		return
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -46,3 +62,6 @@ func _physics_process(delta):
 		play_anim("Run")
 	else:
 		play_anim("Idle")
+	
+	if health <= 0 and not is_dead:
+		die()

@@ -126,6 +126,9 @@ radius = 127.141655
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i67qf"]
 size = Vector2(11.5, 17)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1erdi"]
+size = Vector2(25, 11)
+
 [node name="Frog" type="CharacterBody2D" unique_id=590955741]
 script = ExtResource("1_rd326")
 
@@ -136,7 +139,7 @@ shape = SubResource("RectangleShape2D_aumaf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2140453632]
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_pnfeu")
-animation = &"Death"
+animation = &"Idle"
 metadata/_edit_lock_ = true
 
 [node name="PlayerDetection" type="Area2D" parent="." unique_id=1660218386]
@@ -151,6 +154,13 @@ shape = SubResource("CircleShape2D_5cyyp")
 position = Vector2(-0.75, -8.5)
 shape = SubResource("RectangleShape2D_i67qf")
 
+[node name="PlayerCollison" type="Area2D" parent="." unique_id=1678356368]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollison" unique_id=229910841]
+position = Vector2(-0.5, -5.5)
+shape = SubResource("RectangleShape2D_1erdi")
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
 [connection signal="body_entered" from="PlayerDeath" to="." method="_on_player_death_body_entered"]
+[connection signal="body_entered" from="PlayerCollison" to="." method="_on_player_collison_body_entered"]

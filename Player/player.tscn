@@ -114,7 +114,7 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1010205),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -217,6 +217,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
 
 [sub_resource type="Animation" id="Animation_dkpta"]
 resource_name = "Run"
@@ -268,7 +280,7 @@ shape = SubResource("CapsuleShape2D_fmfli")
 position = Vector2(0, -22)
 scale = Vector2(1.2798296, 1.34375)
 sprite_frames = SubResource("SpriteFrames_amv1d")
-animation = &"Idle"
+animation = &"Death"
 speed_scale = 0.3
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2099925641]
