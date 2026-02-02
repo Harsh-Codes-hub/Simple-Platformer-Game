@@ -189,7 +189,22 @@ position = Vector2(543, 305)
 [node name="mobs" type="Node2D" parent="." unique_id=1463706870]
 
 [node name="frog" parent="mobs" unique_id=590955741 instance=ExtResource("5_036b0")]
-position = Vector2(392, 246)
+position = Vector2(879, 283)
+
+[node name="frog2" parent="mobs" unique_id=1640876363 instance=ExtResource("5_036b0")]
+position = Vector2(115, 256)
+
+[node name="frog3" parent="mobs" unique_id=1004977558 instance=ExtResource("5_036b0")]
+position = Vector2(1185, 264)
+
+[node name="frog4" parent="mobs" unique_id=1532260219 instance=ExtResource("5_036b0")]
+position = Vector2(1045, 215)
+
+[node name="frog5" parent="mobs" unique_id=1848144456 instance=ExtResource("5_036b0")]
+position = Vector2(254, 162)
+
+[node name="frog6" parent="mobs" unique_id=56719370 instance=ExtResource("5_036b0")]
+position = Vector2(690, 215)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=201659155]
 
