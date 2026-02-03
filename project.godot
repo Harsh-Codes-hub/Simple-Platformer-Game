@@ -19,6 +19,11 @@ run/main_scene="uid://bw2adnjs1pbvg"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Game="*uid://cbflvx2cnbbkb"
+Utils="*uid://byutxw5q3upa"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

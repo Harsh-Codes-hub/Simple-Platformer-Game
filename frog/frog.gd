@@ -65,7 +65,7 @@ func _on_player_collison_body_entered(body: Node2D) -> void:
 	if is_dead:
 		return
 	if body.name == "player":
-		body.health -= 3
+		Game.playerHP -= 3
 		death()
 
 
@@ -73,11 +73,11 @@ func _on_player_collison_body_entered(body: Node2D) -> void:
 func death():
 	if is_dead:
 		return
-
+	Game.Gold += 5
+	Utils.saveGame()
 	is_dead = true
 	chase = false
 
-	# 🔥 THIS LINE FIXES THE INVISIBLE PLATFORM
 	$CollisionShape2D.set_deferred("disabled", true)
 
 	$AnimatedSprite2D.play("Death")

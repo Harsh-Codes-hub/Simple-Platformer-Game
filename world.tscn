@@ -158,6 +158,20 @@ texture = ExtResource("1_aqk2v")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pkg7o")
 
+[sub_resource type="GDScript" id="GDScript_dwbse"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	text = \"Gold: \" + str(Game.Gold)
+"
+
 [node name="World" type="Node2D" unique_id=1485576496]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=925896838]
@@ -216,3 +230,12 @@ offset_bottom = 59.0
 theme_override_colors/font_color = Color(1, 0.2235437, 0.3234633, 0.8235294)
 text = "HP: 10"
 script = ExtResource("6_dwbse")
+
+[node name="Gold" type="Label" parent="UI" unique_id=919654402]
+offset_left = 41.0
+offset_top = 57.0
+offset_right = 92.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.8438727, 0.7075143, 0.16208033, 0.8235294)
+text = "Gold: 0"
+script = SubResource("GDScript_dwbse")

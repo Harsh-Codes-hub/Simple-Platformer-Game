@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var health = 10
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -63,5 +63,5 @@ func _physics_process(delta):
 	else:
 		play_anim("Idle")
 	
-	if health <= 0 and not is_dead:
+	if Game.playerHP <=0 and not is_dead:
 		die()
