@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bslnlki0uroyh" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/SunnyLand/Layers/back.png" id="3_dwbse"]
 [ext_resource type="PackedScene" uid="uid://dboxxpx3r7t3u" path="res://frog/frog.tscn" id="5_036b0"]
 [ext_resource type="Script" uid="uid://c165ndutuul38" path="res://hp.gd" id="6_dwbse"]
+[ext_resource type="PackedScene" uid="uid://cnor3ag2dnq32" path="res://Collectables/cherry.tscn" id="7_pkg7o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkg7o"]
 texture = ExtResource("1_aqk2v")
@@ -177,6 +178,7 @@ func _process(delta: float) -> void:
 [node name="TileMap" type="TileMap" parent="." unique_id=925896838]
 tile_set = SubResource("TileSet_gbfbk")
 format = 2
+metadata/_edit_lock_ = true
 
 [node name="Layer1" type="TileMapLayer" parent="TileMap" unique_id=941453627]
 use_parent_material = true
@@ -189,6 +191,7 @@ script = ExtResource("2_036b0")
 [node name="Layer1" type="ParallaxLayer" parent="bg" unique_id=473966353]
 motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1151, 0)
+metadata/_edit_lock_ = true
 
 [node name="Back" type="Sprite2D" parent="bg/Layer1" unique_id=1723005842]
 position = Vector2(575.5, 324.37503)
@@ -196,6 +199,7 @@ scale = Vector2(2.997396, 2.7031252)
 texture = ExtResource("3_dwbse")
 
 [node name="player" type="Node2D" parent="." unique_id=217006086]
+metadata/_edit_lock_ = true
 
 [node name="player" parent="player" unique_id=1571372614 instance=ExtResource("1_f3sb7")]
 position = Vector2(543, 305)
@@ -203,22 +207,22 @@ position = Vector2(543, 305)
 [node name="mobs" type="Node2D" parent="." unique_id=1463706870]
 
 [node name="frog" parent="mobs" unique_id=590955741 instance=ExtResource("5_036b0")]
-position = Vector2(879, 283)
+position = Vector2(1769, 287)
 
 [node name="frog2" parent="mobs" unique_id=1640876363 instance=ExtResource("5_036b0")]
-position = Vector2(115, 256)
+position = Vector2(1005, 260)
 
 [node name="frog3" parent="mobs" unique_id=1004977558 instance=ExtResource("5_036b0")]
-position = Vector2(1185, 264)
+position = Vector2(2075, 268)
 
 [node name="frog4" parent="mobs" unique_id=1532260219 instance=ExtResource("5_036b0")]
-position = Vector2(1045, 215)
+position = Vector2(1935, 219)
 
 [node name="frog5" parent="mobs" unique_id=1848144456 instance=ExtResource("5_036b0")]
-position = Vector2(254, 162)
+position = Vector2(1144, 166)
 
 [node name="frog6" parent="mobs" unique_id=56719370 instance=ExtResource("5_036b0")]
-position = Vector2(690, 215)
+position = Vector2(1580, 219)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=201659155]
 
@@ -239,3 +243,8 @@ offset_bottom = 80.0
 theme_override_colors/font_color = Color(0.8438727, 0.7075143, 0.16208033, 0.8235294)
 text = "Gold: 0"
 script = SubResource("GDScript_dwbse")
+
+[node name="Collectables" type="Node2D" parent="." unique_id=1414671328]
+
+[node name="Cherry" parent="Collectables" unique_id=350478016 instance=ExtResource("7_pkg7o")]
+position = Vector2(352, 296)

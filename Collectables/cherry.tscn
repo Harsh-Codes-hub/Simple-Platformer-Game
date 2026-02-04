@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cnor3ag2dnq32"]
+
+[ext_resource type="Script" uid="uid://b03d8u6bp5km3" path="res://Collectables/cherry.gd" id="1_lb8kb"]
+[ext_resource type="Texture2D" uid="uid://b6qcglx4tuija" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Props Items and VFX/Sunnyland items/Spritesheets/cherry.png" id="1_xfitp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lb8kb"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu040"]
+atlas = ExtResource("1_xfitp")
+region = Rect2(0, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vndrr"]
+atlas = ExtResource("1_xfitp")
+region = Rect2(21, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsywu"]
+atlas = ExtResource("1_xfitp")
+region = Rect2(42, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n53e"]
+atlas = ExtResource("1_xfitp")
+region = Rect2(63, 0, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57ql3"]
+atlas = ExtResource("1_xfitp")
+region = Rect2(84, 0, 21, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yr8cn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu040")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vndrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsywu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2n53e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57ql3")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}]
+
+[node name="Cherry" type="Area2D" unique_id=350478016]
+script = ExtResource("1_lb8kb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=753060891]
+shape = SubResource("CircleShape2D_lb8kb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1912933323]
+sprite_frames = SubResource("SpriteFrames_yr8cn")
+animation = &"Idle"
+frame_progress = 0.9597572
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
