@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://b67xy40mf3etg" path="res://Player/player.tscn" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://rmoekpc6eiot" path="res://bg.gd" id="2_036b0"]
 [ext_resource type="Texture2D" uid="uid://bslnlki0uroyh" path="res://Sunny Land Collection Files/Sunny Land Collection Files/Assets/Environments/SunnyLand/Layers/back.png" id="3_dwbse"]
-[ext_resource type="PackedScene" uid="uid://dboxxpx3r7t3u" path="res://frog/frog.tscn" id="5_036b0"]
+[ext_resource type="Script" uid="uid://dceevmlt7xthr" path="res://mobs.gd" id="5_pkg7o"]
 [ext_resource type="Script" uid="uid://c165ndutuul38" path="res://hp.gd" id="6_dwbse"]
-[ext_resource type="PackedScene" uid="uid://cnor3ag2dnq32" path="res://Collectables/cherry.tscn" id="7_pkg7o"]
+[ext_resource type="Script" uid="uid://bbf4fvhfusmvf" path="res://collectables.gd" id="7_pkg7o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkg7o"]
 texture = ExtResource("1_aqk2v")
@@ -205,24 +205,11 @@ metadata/_edit_lock_ = true
 position = Vector2(543, 305)
 
 [node name="mobs" type="Node2D" parent="." unique_id=1463706870]
+script = ExtResource("5_pkg7o")
 
-[node name="frog" parent="mobs" unique_id=590955741 instance=ExtResource("5_036b0")]
-position = Vector2(1769, 287)
-
-[node name="frog2" parent="mobs" unique_id=1640876363 instance=ExtResource("5_036b0")]
-position = Vector2(1005, 260)
-
-[node name="frog3" parent="mobs" unique_id=1004977558 instance=ExtResource("5_036b0")]
-position = Vector2(2075, 268)
-
-[node name="frog4" parent="mobs" unique_id=1532260219 instance=ExtResource("5_036b0")]
-position = Vector2(1935, 219)
-
-[node name="frog5" parent="mobs" unique_id=1848144456 instance=ExtResource("5_036b0")]
-position = Vector2(1144, 166)
-
-[node name="frog6" parent="mobs" unique_id=56719370 instance=ExtResource("5_036b0")]
-position = Vector2(1580, 219)
+[node name="Timer" type="Timer" parent="mobs" unique_id=1012820323]
+wait_time = 2.0
+autostart = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=201659155]
 
@@ -245,6 +232,11 @@ text = "Gold: 0"
 script = SubResource("GDScript_dwbse")
 
 [node name="Collectables" type="Node2D" parent="." unique_id=1414671328]
+script = ExtResource("7_pkg7o")
 
-[node name="Cherry" parent="Collectables" unique_id=350478016 instance=ExtResource("7_pkg7o")]
-position = Vector2(352, 296)
+[node name="Timer" type="Timer" parent="Collectables" unique_id=1297268471]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="mobs/Timer" to="mobs" method="_on_timer_timeout"]
+[connection signal="timeout" from="Collectables/Timer" to="Collectables" method="_on_timer_timeout"]
