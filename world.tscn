@@ -178,7 +178,6 @@ func _process(delta: float) -> void:
 [node name="TileMap" type="TileMap" parent="." unique_id=925896838]
 tile_set = SubResource("TileSet_gbfbk")
 format = 2
-metadata/_edit_lock_ = true
 
 [node name="Layer1" type="TileMapLayer" parent="TileMap" unique_id=941453627]
 use_parent_material = true
@@ -191,7 +190,6 @@ script = ExtResource("2_036b0")
 [node name="Layer1" type="ParallaxLayer" parent="bg" unique_id=473966353]
 motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1151, 0)
-metadata/_edit_lock_ = true
 
 [node name="Back" type="Sprite2D" parent="bg/Layer1" unique_id=1723005842]
 position = Vector2(575.5, 324.37503)
@@ -199,10 +197,9 @@ scale = Vector2(2.997396, 2.7031252)
 texture = ExtResource("3_dwbse")
 
 [node name="player" type="Node2D" parent="." unique_id=217006086]
-metadata/_edit_lock_ = true
 
 [node name="player" parent="player" unique_id=1571372614 instance=ExtResource("1_f3sb7")]
-position = Vector2(543, 305)
+position = Vector2(1154, 242)
 
 [node name="mobs" type="Node2D" parent="." unique_id=1463706870]
 script = ExtResource("5_pkg7o")
@@ -235,7 +232,7 @@ script = SubResource("GDScript_dwbse")
 script = ExtResource("7_pkg7o")
 
 [node name="Timer" type="Timer" parent="Collectables" unique_id=1297268471]
-wait_time = 4.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="mobs/Timer" to="mobs" method="_on_timer_timeout"]

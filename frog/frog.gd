@@ -57,6 +57,7 @@ func _on_player_death_body_entered(body: Node2D) -> void:
 
 	# Player must be ABOVE the frog
 	if body.global_position.y < global_position.y:
+		Game.Gold += 5
 		death()
 
 
@@ -65,7 +66,8 @@ func _on_player_collison_body_entered(body: Node2D) -> void:
 	if is_dead:
 		return
 	if body.name == "player":
-		Game.playerHP -= 3
+		Game.set_hp(Game.playerHP - 3)
+		Game.Gold += 3
 		death()
 
 
@@ -73,7 +75,6 @@ func _on_player_collison_body_entered(body: Node2D) -> void:
 func death():
 	if is_dead:
 		return
-	Game.Gold += 5
 	Utils.saveGame()
 	is_dead = true
 	chase = false
