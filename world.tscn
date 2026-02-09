@@ -170,7 +170,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = \"Gold: \" + str(Game.Gold)
+	text = \"🪙: \" + str(Game.Gold)
 "
 
 [node name="World" type="Node2D" unique_id=1485576496]
@@ -211,21 +211,33 @@ autostart = true
 [node name="UI" type="CanvasLayer" parent="." unique_id=201659155]
 
 [node name="Hp" type="Label" parent="UI" unique_id=68567676]
-offset_left = 41.0
-offset_top = 36.0
-offset_right = 92.0
-offset_bottom = 59.0
+offset_left = 40.0
+offset_top = 33.0
+offset_right = 91.0
+offset_bottom = 56.0
 theme_override_colors/font_color = Color(1, 0.2235437, 0.3234633, 0.8235294)
-text = "HP: 10"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 3
+text = "❤️: 10"
 script = ExtResource("6_dwbse")
 
 [node name="Gold" type="Label" parent="UI" unique_id=919654402]
-offset_left = 41.0
-offset_top = 57.0
-offset_right = 92.0
-offset_bottom = 80.0
-theme_override_colors/font_color = Color(0.8438727, 0.7075143, 0.16208033, 0.8235294)
-text = "Gold: 0"
+offset_left = 40.0
+offset_top = 59.0
+offset_right = 91.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.9764706, 0.7607843, 0.23529412, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 2
+text = "🪙: 0"
 script = SubResource("GDScript_dwbse")
 
 [node name="Collectables" type="Node2D" parent="." unique_id=1414671328]

@@ -4,6 +4,7 @@ func _ready():
 	Utils.saveGame();
 	Utils.loadGame();
 func _on_play_pressed() :
+	Game.reset()
 	get_tree().change_scene_to_file("res://world.tscn")
 
 

@@ -11,10 +11,8 @@ func die():
 	is_dead = true
 	velocity = Vector2.ZERO
 	play_anim("Death")
-
 	await anim.animation_finished
 	await get_tree().create_timer(1.0).timeout
-
 	queue_free()
 	get_tree().change_scene_to_file("res://main.tscn")
 
