@@ -4,28 +4,42 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 @onready var anim = $AnimationPlayer
+@onready var game_music = get_parent().get_node("GameMusic")
+
 var current_anim := ""
 var is_dead := false
 
+
 func die():
+
 	is_dead = true
 	velocity = Vector2.ZERO
+
+	# 🎵 Stop gameplay music
+	if game_music:
+		game_music.stop()
+		game_music.seek(0.0)
+
 	play_anim("Death")
+
 	await anim.animation_finished
 	await get_tree().create_timer(1.0).timeout
+
 	queue_free()
 	get_tree().change_scene_to_file("res://main.tscn")
 
 
+func play_anim(animation: String):
+	if current_anim != animation:
+		current_anim = animation
+		anim.play(animation)
 
-func play_anim(name: String):
-	if current_anim != name:
-		current_anim = name
-		anim.play(name)
 
 func _physics_process(delta):
+
 	if is_dead:
 		return
+
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -47,10 +61,10 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# APPLY MOVEMENT FIRST
+	# Apply movement
 	move_and_slide()
 
-	# ✅ ANIMATION LOGIC AFTER MOVEMENT
+	# Animation logic
 	if not is_on_floor():
 		if velocity.y < 0:
 			play_anim("Jump")
@@ -60,6 +74,7 @@ func _physics_process(delta):
 		play_anim("Run")
 	else:
 		play_anim("Idle")
-	
-	if Game.playerHP <=0 and not is_dead:
+
+	# 💀 Death check
+	if Game.playerHP <= 0 and not is_dead:
 		die()

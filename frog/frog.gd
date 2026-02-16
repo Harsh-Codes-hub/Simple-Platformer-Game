@@ -55,9 +55,9 @@ func _on_player_death_body_entered(body: Node2D) -> void:
 	if body.name != "player":
 		return
 
-	# Player must be ABOVE the frog
 	if body.global_position.y < global_position.y:
 		Game.Gold += 5
+		body.velocity.y = -250
 		death()
 
 

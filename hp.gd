@@ -1,4 +1,4 @@
 extends Label
 
-func _process(delta: float) -> void:
+func _process(delta) -> void:
 	text = "❤️: " + str(Game.playerHP)
